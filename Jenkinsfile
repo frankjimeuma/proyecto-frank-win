@@ -29,5 +29,19 @@ pipeline {
         
             }
         }
+        stage('Despliegue') {
+            steps {
+                sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-staging/'
+      
+        
+            }
+        }
+      stage('Despliegue') {
+            steps {
+                sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-prod/'
+      
+        
+            }
+        }
     }
 }
