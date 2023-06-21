@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+//hello
     stages {
         
         stage('Instalar dependencias') {
@@ -19,7 +19,28 @@ pipeline {
         stage('Mostrar Archivos') {
             //when {branch 'dev'}
             steps {
-                sh 'ls -la'
+                sh 'pwd'
+            }
+        }
+        stage('Despliegue') {
+            steps {
+                sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-dev/'
+      
+        
+            }
+        }
+        stage('Despliegue') {
+            steps {
+                sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-staging/'
+      
+        
+            }
+        }
+      stage('Despliegue') {
+            steps {
+                sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-prod/'
+      
+        
             }
         }
     }
