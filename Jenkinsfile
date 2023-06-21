@@ -19,7 +19,7 @@ pipeline {
         stage('Mostrar Archivos') {
             //when {branch 'dev'}
             steps {
-                sh 'ls -la'
+                sh 'cd dist || ls -la'
             }
         }
     }
