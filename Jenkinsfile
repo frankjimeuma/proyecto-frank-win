@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Despliegue') {
             steps {
-                sh 'cp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-dev'
+                sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-dev'
       
         
             }
