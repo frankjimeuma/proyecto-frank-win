@@ -22,5 +22,12 @@ pipeline {
                 sh 'pwd'
             }
         }
+        stage('Despliegue') {
+            steps {
+                sh 'cp dist/angular-app/* /tmp/deploy'
+      
+        
+            }
+        }
     }
 }
