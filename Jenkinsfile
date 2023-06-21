@@ -17,26 +17,26 @@ pipeline {
         }
 
         stage('Mostrar Archivos') {
-            //when {branch 'dev'}
+            
             steps {
                 sh 'pwd'
             }
         }
-        stage('Despliegue') {
+        stage('Despliegue1') {
             steps {
                 sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-dev/'
       
         
             }
         }
-        stage('Despliegue') {
+        stage('Despliegue2') {
             steps {
                 sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-staging/'
       
         
             }
         }
-      stage('Despliegue') {
+      stage('Despliegue3') {
             steps {
                 sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-prod/'
       
