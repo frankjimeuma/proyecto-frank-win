@@ -4,6 +4,7 @@ pipeline {
     //Declaracion de valores de entorno
     environment {
         MESSAGE = "Curso de Intgracion Continua"
+        LISTA_CORREOS = "franklin.jimenezumana@ucreativa"
     }
 
 
