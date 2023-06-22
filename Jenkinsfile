@@ -65,6 +65,9 @@ pipeline {
         
             }
         }
+    }
+
+      
     post {
       always {
           echo 'siempre me voy a ejecutar...no matter what happens in the world :| '
@@ -76,6 +79,9 @@ pipeline {
           echo 'Algo Salio Mal :('
       }
     
-        }
     }
+
+
+      
+    
 }
