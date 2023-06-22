@@ -76,10 +76,10 @@ pipeline {
           echo 'siempre me voy a ejecutar...no matter what happens in the world :| '
       }
       success {
-          emailext body: "${CUERPO_CORREO} exitoso", subject: "${TITULO_CORREO}", to: "${LISTA_CORREOS}
+          emailext body: "${CUERPO_CORREO} exitoso", subject: "${TITULO_CORREO}", to: "${LISTA_CORREOS}"
       }
       failure {
-          emailext body: "${CUERPO_CORREO} fallido", subject: "${TITULO_CORREO}", to: "${LISTA_CORREOS}
+          emailext body: "${CUERPO_CORREO} fallido", subject: "${TITULO_CORREO}", to: "${LISTA_CORREOS}"
       }
       success {
           echo 'El ipeline da ok :)'
