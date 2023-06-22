@@ -81,12 +81,12 @@ pipeline {
       failure {
           emailext body: "${CUERPO_CORREO} fallido", subject: "${TITULO_CORREO}", to: "${LISTA_CORREOS}"
       }
-      success {
-          echo 'El ipeline da ok :)'
-      }
-      failure {
-          echo 'Algo Salio Mal :('
-      }
+ //     success {
+   //       echo 'El ipeline da ok :)'
+     // }
+      //failure {
+        //  echo 'Algo Salio Mal :('
+      //}
     
     }
 
