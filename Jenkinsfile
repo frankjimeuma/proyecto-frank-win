@@ -74,8 +74,8 @@ pipeline {
       }
       failure {
           echo 'Algo Salio Mal :('
-    }
+      }
     
+        }
     }
-  }
 }
