@@ -49,22 +49,7 @@ pipeline {
         
             }
         }
-      stage('Despliegue Staging') {
-            when {branch 'staging'}
-            steps {
-                sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-staging/'
-      
-        
-            }
-        }
-      stage('Despliegue Staging') {
-            when {branch 'staging'}
-            steps {
-                sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-staging/'
-      
-        
-            }
-        }
+
       stage('Despliegue Prod') {
             when {branch 'prod'}
             steps {
