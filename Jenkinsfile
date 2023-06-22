@@ -88,7 +88,7 @@ pipeline {
           echo 'El ipeline da ok :)'
       }
       failure {
-          echo 'Algo Salio Mal :(
+          echo 'Algo Salio Mal :('
     }
     
     }
