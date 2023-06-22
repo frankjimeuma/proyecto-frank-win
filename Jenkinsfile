@@ -5,6 +5,8 @@ pipeline {
     environment {
         MESSAGE = "Curso de Intgracion Continua"
         LISTA_CORREOS = "franklin.jimenezumana@ucreativa"
+        CUERPO_CORREO = "El pipeline ${BUILD_URL} tuvo un resultado"
+        TITULO_CORREO = "${BUILD_URL} STATUS"
     }
 
 
@@ -72,6 +74,12 @@ pipeline {
     post {
       always {
           echo 'siempre me voy a ejecutar...no matter what happens in the world :| '
+      }
+      success {
+          emailext body: "${CUERPO_CORREO} exitoso", subject: "${TITULO_CORREO}", to: "${LISTA_CORREOS}
+      }
+      failure {
+          emailext body: "${CUERPO_CORREO} fallido", subject: "${TITULO_CORREO}", to: "${LISTA_CORREOS}
       }
       success {
           echo 'El ipeline da ok :)'
