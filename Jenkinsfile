@@ -56,7 +56,7 @@ pipeline {
       stage('Despliegue Prod') {
             when {branch 'prod'}
             steps {
-                bat 'xcopy dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-prod/'
+                bat 'robocopy dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-prod/'
       
         
             }
