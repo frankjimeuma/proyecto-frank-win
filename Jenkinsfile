@@ -20,20 +20,20 @@ pipeline {
       
         stage('Instalar dependencias') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
             
         stage('Compilacion del APP') {
             steps {
-                sh 'npm run build'
+                bat 'npm run build'
             }
         }
 
         stage('Mostrar Archivos') {
             
             steps {
-                sh 'ls -la'
+                bat 'dir'
             }
         }
         stage('Despliegue Dev') {
