@@ -33,7 +33,7 @@ pipeline {
         stage('Mostrar Archivos') {
             
             steps {
-                bat 'dir'
+                bat 'dir dist'
             }
         }
         stage('Despliegue Dev') {
@@ -56,7 +56,7 @@ pipeline {
       stage('Despliegue Prod') {
             when {branch 'prod'}
             steps {
-                sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-prod/'
+                bat 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-prod/'
       
         
             }
