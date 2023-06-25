@@ -57,7 +57,7 @@ pipeline {
             when {branch 'prod'}
             steps {
                 //sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-prod/'
-                bat 'robocopy dist\angular-app\* root@206.189.254.187:/usr/ucreativa/franklin-prod/'
+                bat 'robocopy 'dist\angular-app\*' root@206.189.254.187:/usr/ucreativa/franklin-prod/'
       
         
             }
