@@ -33,7 +33,7 @@ pipeline {
         stage('Mostrar Archivos') {
             
             steps {
-                sh 'pwd'
+                sh 'ls -la'
             }
         }
         stage('Despliegue Dev') {
