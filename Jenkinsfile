@@ -2,7 +2,7 @@ pipeline {
     pipeline {
     agent {
 	label 'linux-agent'
-	}
+	        }
 
     //Declaracion de valores de entorno
     environment {
