@@ -66,7 +66,7 @@ pipeline {
         }
       stage('Failure') {
             steps {
-                bat 'dir'
+                sh 'ls -la'
               
         
             }
