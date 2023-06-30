@@ -20,20 +20,20 @@ pipeline {
       
         stage('Instalar dependencias') {
             steps {
-                bat 'npm install'
+                sh 'npm install'
             }
         }
             
         stage('Compilacion del APP') {
             steps {
-                bat 'npm run build'
+                sh 'npm run build'
             }
         }
 
         stage('Mostrar Archivos') {
             
             steps {
-                bat 'dir dist'
+                sh 'dir dist'
             }
         }
         stage('Despliegue Dev') {
@@ -56,8 +56,8 @@ pipeline {
       stage('Despliegue Prod') {
             when {branch 'prod'}
             steps {
-                //sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-prod/'
-                bat 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-prod/'
+                sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-prod/'
+                //bat 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-prod/'
       
         
             }
