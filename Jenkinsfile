@@ -64,7 +64,7 @@ pipeline {
         
             }
         }
-      stage('Failure') {
+      stage('success') {
             steps {
                 sh 'ls -la'
               
