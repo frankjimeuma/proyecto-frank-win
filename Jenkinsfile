@@ -29,17 +29,31 @@ pipeline {
                 sh 'npm install'
             }
         }
-            
-        stage('Compilacion del APP') {
+      
+        stage('Correr pruebas de unidad') {
+            steps {
+                sh 'npm run test'
+            }
+        }  
+      
+        stage('Compilacion de la aplicacion Angular') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+        stage('Compilacion de la aplicacion Angular') {
             steps {
                 sh 'npm run build'
             }
         }
 
         stage('Mostrar Archivos') {
-            
             steps {
-                sh 'dir dist'
+                //the following command works with Windows
+                //sh 'dir dist'
+
+                //the following command works with linux
+                sh 'ls dist'
             }
         }
         stage('Deploy to server Development') {
@@ -69,6 +83,7 @@ pipeline {
                 //bat 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-prod/'
 
                 //the following line is for Prod deploy in AWS S3 bucket Linux agent
+                sh 'aws s3 cp dist/angular-app/ s3//proyecto-frank-s3 --recursive'
                 
         
             }
