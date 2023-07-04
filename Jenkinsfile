@@ -1,7 +1,8 @@
 pipeline {
     agent {
 	label 'linux-agent'
-	}
+	}   
+    
 
     //Declaracion de valores de entorno
     environment {
@@ -9,6 +10,9 @@ pipeline {
         LISTA_CORREOS = "franklin.jimenezumana@ucreativa"
         CUERPO_CORREO = "El pipeline ${BUILD_URL} tuvo un resultado"
         TITULO_CORREO = "${BUILD_URL} STATUS"
+        AWS_ACCESS_KEY_ID=credentials('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY=credentials('AWS_SECRET_ACCESS_KEY')
+        AWS_DEFAULT_REGION='us-east-1'
     }
 
 
@@ -38,29 +42,34 @@ pipeline {
                 sh 'dir dist'
             }
         }
-        stage('Despliegue Dev') {
+        stage('Deploy to server Development') {
             when {branch 'development'}
             steps {
-                sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-dev/'
+                // the following line is for Dev in Digital Ocean for Linux agent
+                //sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-dev/'
       
         
             }
         }
-        stage('Despliegue Staging') {
+        stage('Deploy to server Staging') {
             when {branch 'staging'}
             steps {
-                sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-staging/'
+                // the following line is for Staging in Digital Ocean for Linux agent
+                //sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-staging/'
       
         
             }
         }
 
-      stage('Despliegue Prod') {
+      stage('Deploy to server Production') {
             when {branch 'production'}
             steps {
-                sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-prod/'
+                //the following line is for Prod  in Digital Ocean for Linux agent
+                //sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-prod/'
                 //bat 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-prod/'
-      
+
+                //the following line is for Prod deploy in AWS S3 bucket Linux agent
+                
         
             }
         }
