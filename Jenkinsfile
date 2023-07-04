@@ -41,11 +41,7 @@ pipeline {
                 sh 'npm run build'
             }
         }
-        stage('Compilacion de la aplicacion Angular') {
-            steps {
-                sh 'npm run build'
-            }
-        }
+        
 
         stage('Mostrar Archivos') {
             steps {
@@ -60,7 +56,7 @@ pipeline {
             when {branch 'development'}
             steps {
                 // the following line is for Dev in Digital Ocean for Linux agent
-                //sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-dev/'
+                sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-dev/'
       
         
             }
@@ -69,7 +65,7 @@ pipeline {
             when {branch 'staging'}
             steps {
                 // the following line is for Staging in Digital Ocean for Linux agent
-                //sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-staging/'
+                sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-staging/'
       
         
             }
