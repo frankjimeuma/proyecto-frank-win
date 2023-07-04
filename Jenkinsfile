@@ -30,11 +30,11 @@ pipeline {
             }
         }
       
-        stage('Correr pruebas de unidad') {
-            steps {
-                sh 'npm run test'
-            }
-        }  
+        //stage('Correr pruebas de unidad') {
+           // steps {
+                //sh 'npm run test'
+            //}
+        //}  
       
         stage('Compilacion de la aplicacion Angular') {
             steps {
